@@ -1,0 +1,31 @@
+DEFINIOWANIE WIELOKĄTA:
+Jeśli chcemy dodać nowy wielokąt, to po kolei klikamy lewym przyciskiem myszy w miejscach żądanych punktów. Żeby "zamknąć" wielokąt musimy kliknąć lewym przyciskiem myszy w odległości nie większej niż 10 pikseli od pierwszego punktu.
+
+USUWANIE WIELOKĄTA:
+Jeśli chcemy usunąć wielokąt, to musimy kliknąć prawym przyciskiem myszy w środku wielokąta (ale tak, żeby odległość do najbliższej krawędzi była nie mniejsza niż 10 pikseli) i wybrać opcję "delete".
+
+USUWANIE WIERZCHOŁKA:
+Dla usuwania wierzchołka trzeba umieścić wskaźnik myszy nad wierzchołkiem, kliknąć prawym przyciskiem myszy i wybrać opcję "delete vertex".
+
+DODAWANIE WIERZCHOŁKA:
+Żeby dodać wierzchołek, trzeba kliknąć prawym przyciskiem myszy w wybraną krawędź (lub węwnątrz wielokąta w odległości nie więcej, niż 10 pikseli od wybranej krawędzi) i wybrać opcję "add vertex".
+
+PRZESUWANIE WIERZCHOŁKA/KRAWĘDZI:
+Dla przesuwania wierzchołka (bądź krawędzi) trzeba umieścić wskaźnik myszy nad wierzchołkiem (w przypadku krawędzi: węwnątrz wielokąta w odległości nie więcej, niż 10 pikseli od krawędzi) nacisnąć lewy przycisk i przesunąć wybrany wierzchołek (krawędź) na żądane miejsce.
+
+PRZESUWANIE CAŁEGO WIELOKĄTA:
+Jeśli chcemy przesunąć wielokąt, to musimy nacisnąć lewy przycisk myszy w środku wielokąta (ale tak, żeby odległość do najbliższej krawędzi była nie mniejsza niż 10 pikseli) i przesunąć wielokąt na żądane miejsce.
+
+DODAWANIE/USUWANIE OGRANICZEŃ NA KRAWĘDŹ:
+Żeby dodać/usunąć ograniczenie na krawędź, trzeba kliknąć prawym przyciskiem myszy w wybraną krawędź (lub węwnątrz wielokąta w odległości nie więcej, niż 10 pikseli od wybranej krawędzi) i wybrać odpowiednią opcję.
+
+Dla wybrania algorytmu Bresenhama trzeba wybrać odpowiedni radiobutton, a dla zmiana offsetu odbywa się za pomocą trackbar.
+
+Załozenie: po wybraniu alg. Bresenhama krawędzi wszystkich wielokątów zostaną narysowane za pomocą tego algorytmu, ale po dowolnym innym działaniu znowu wszytko będzie się rysowało za pomocą bibliotecznych funkcji (o czym świadczy odpowiedni radiobutton).
+
+Przy wyznaczaniu wielokąta odsuniętego z powowdu braku ograniczeń na złożoność poszłam na łatwiznę i zrobiłam to w taki sposób: najpierw grubą linią rysuję gruby wielokąt (na podstawie informacji o punktach wielokąta), potem rysuję zwykły wielokąt (bazująć się na tych samych punktach) i farbuję go na biało (kolor tła).
+
+Przy ustalaniu poziomej krawędzi ja najpierw sprawdzam, czy żadna z sąsiednich krawędzi nie jest pozioma. Jak sąsiednie krawędzie są zwykłe lub pionowe, to bez problemów mogę zrobić wybraną krawędź poziomą. W takim przypadku X-koordynaty początku i końca krawędzi zostają takie same, a Y_start_new = Y_end_new = (Y_st + Y_en)/2 . Każdy obiekt klasy Edge ma pola bool horizontal, bool vertical, wartości których zmieniam w odpowiednich momentach. Dodatkowo każdy obiekt Polygon ma List<(int,int)> H_positions, V_positions - listę tupli, gdzie przechowuje indeksy punktów, wyznaczających pionowe i poziome krawędzi odpowiednio.
+
+
+
